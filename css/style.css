@@ -542,6 +542,7 @@ details.project-card[open] {
     position: relative;
 }
 
+
 /* when a project-card is open, span full row and push siblings down */
 .other-projects > .project-card[open] {
     grid-column: 1 / -1;
@@ -596,6 +597,23 @@ details.project-article:has(> summary:hover) {
     0% { background-position: 0% 0; }
     100% { background-position: 200% 0; }
 }
+
+/* Project Card Custom Element Container Styles */
+.project-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 5rem 2rem;
+    margin: 2rem 0;
+    padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    .project-cards-container {
+        grid-template-columns: 1fr;
+        gap: 3em;
+    }
+}
+
 
 .intro-motto {
     display: grid;
@@ -871,23 +889,23 @@ form.contact-form {
     }
   }
   
-  @keyframes flash {
+@keyframes flash {
     0%, 100% { 
-      background-color: var(--bg-card); 
-      border-color: var(--border-color);
+        background-color: var(--bg-card); 
+        border-color: var(--border-color);
     }
     50% { 
-      background-color: var(--input-border-error); 
-      border-color: var(--input-border-error);
-      opacity: 0.3; 
+        background-color: var(--input-border-error); 
+        border-color: var(--input-border-error);
+        opacity: 0.3; 
     }
-  }
+}
 
-  @keyframes fadeOut {
+@keyframes fadeOut {
     0% { opacity: 1; }
     70% { opacity: 1; }
     100% { opacity: 0; }
-  }
+}
 
 @view-transition {
     navigation: auto;
