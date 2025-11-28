@@ -135,7 +135,7 @@ class ProjectCard extends HTMLElement {
                     span.keyword {
                         display: inline-block;
                         padding: 0.25rem 0.75rem;
-                        background-color:  var(--accent-color));
+                        background-color: var(--accent-color);
                         border: 1px solid var(--accent-color);
                         border-radius: 16px;
                         font-size: 0.85rem;
@@ -218,6 +218,109 @@ class ProjectCard extends HTMLElement {
   }
 }
 
-// Register the custom element
 customElements.define('project-card', ProjectCard);
+
+const localProjects = [
+  {
+    "name": "Enterprise Risk Metrics Platform",
+    "image": "assets/img/llm.jpg",
+    "alt": "Enterprise architecture diagram showing risk metrics platform",
+    "description": "Developed a derivative metrics Agent based on Program of Thoughts prompt engineering, enabling large language models to generate executable Python scripts from natural language descriptions. Built an enterprise risk metrics auto-generation management platform with code persistence and effective reuse.",
+    "link": "projects.html",
+    "link-text": "View Details",
+    "date": "Jun - Sep 2025",
+    "keywords": "LLM, Python, Enterprise Software, Redis, Prompt Engineering"
+  },
+  {
+    "name": "Cloud-native Testing and Automation Architecture",
+    "image": "assets/img/dev.jpg",
+    "alt": "Cloud-native testing and automation architecture diagram for telecom systems",
+    "description": "Developed scalable Python-based automation tools for formula regression in the AAT-LT (Automated Acceptance Test – Load Test) system using modular design and OOP principles. Led data pipeline improvements with Pandas/NumPy for large-scale load testing, reducing test duration by 25%.",
+    "link": "projects.html",
+    "link-text": "View Details",
+    "date": "Aug - Dec 2023 | Shanghai, China",
+    "keywords": "Python, Automation, Load Testing, Pandas, NumPy, Kubernetes, Chaos Engineering, Cloud-Native"
+  }
+];
+
+if (!localStorage.getItem("projects")) {
+  localStorage.setItem("projects", JSON.stringify(localProjects));
+}
+
+function renderProjectCards(projects, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) {
+    console.error(`Container with id "${containerId}" not found`);
+    return;
+  }
+
+  container.innerHTML = '';
+
+  if (!projects || projects.length === 0) {
+    container.innerHTML = '<p>No projects found.</p>';
+    return;
+  }
+
+  projects.forEach(project => {
+    const card = document.createElement('project-card');
+    card.setAttribute('name', project.name || '');
+    card.setAttribute('image', project.image || '');
+    card.setAttribute('alt', project.alt || '');
+    card.setAttribute('description', project.description || '');
+    card.setAttribute('link', project.link || '#');
+    card.setAttribute('date', project.date || '');
+    card.setAttribute('keywords', project.keywords || '');
+    container.appendChild(card);
+  });
+}
+
+function loadLocalProjects() {
+  try {
+    const storedData = localStorage.getItem("projects");
+    if (!storedData) {
+      console.error("No projects found in localStorage");
+      alert("No projects found in localStorage");
+      return;
+    }
+
+    const projects = JSON.parse(storedData);
+    renderProjectCards(projects, "cards-display");
+    console.log("Loaded projects from localStorage:", projects);
+  } catch (error) {
+    console.error("Error loading local projects:", error);
+    alert("Error loading projects from localStorage: " + error.message);
+  }
+}
+
+function loadRemoteProjects() {
+    const headers = {
+      'Content-Type': 'application/json'
+    };
+
+    fetch(`https://my-json-server.typicode.com/Esayanubn/jsonSever4CustomElem/projects`, {
+      headers: headers
+    })
+    .then(response => response.json())
+    .then(data => {
+      renderProjectCards(data, "cards-display");
+      console.log("Loaded projects from remote source:", data);
+    })
+    .catch(error => {
+      console.error("Error loading remote projects:", error);
+      alert("Error loading projects from remote source: " + error.message);
+    });
+  }
+  
+document.addEventListener('DOMContentLoaded', () => {
+  const loadLocalBtn = document.getElementById('load-local');
+  const loadRemoteBtn = document.getElementById('load-remote');
+
+  if (loadLocalBtn) {
+    loadLocalBtn.addEventListener('click', loadLocalProjects);
+  }
+
+  if (loadRemoteBtn) {
+    loadRemoteBtn.addEventListener('click', loadRemoteProjects);
+  }
+});
 

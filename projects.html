@@ -140,72 +140,11 @@
     <section>
       <h2>Featured Projects (Custom Elements)</h2>
       <div class="project-cards-container">
-        <project-card
-          name="Amazon Digital Music Recommender System"
-          image="assets/img/amzmusic.png"
-          alt="Machine learning model visualization showing recommendation system architecture"
-          description="Built a comprehensive recommender system for Amazon Digital Music reviews using multiple machine learning approaches. Conducted extensive EDA on review data and implemented collaborative filtering, logistic regression, SVM, and deep learning models with PyTorch using TF-IDF for text feature extraction."
-          link="projects.html"
-          link-text="View Details"
-          date="Oct - Dec 2024"
-          keywords="Machine Learning, PyTorch, Recommender Systems, NLP, TF-IDF">
-        </project-card>
-
-        <project-card
-          name="Mini RISC-V Operating System"
-          image="assets/img/riscv.png"
-          alt="RISC-V processor architecture diagram showing system components"
-          description="Implemented a complete operating system from scratch in C based on QEMU simulator. Features include context switching with trapping, priority process scheduling, virtual memory management with three-level page tables, dynamic memory allocation, user-state program loading and execution, and thread forking."
-          link="projects.html"
-          link-text="View Details"
-          date="Aug - Dec 2023"
-          keywords="Operating Systems, C, Assembly, QEMU, Virtual Memory">
-        </project-card>
-
-        <project-card
-          name="TCP Connection Protocol Implementation"
-          image="assets/img/tcpproj.png"
-          alt="Network protocol diagram showing TCP connection flow"
-          description="Built a working TCP Connection Protocol with Sender and Receiver components in C++, achieving transmission speeds of 190 Mbit/s. Implemented message transmission mechanisms with functions for message waiting between network interfaces and routes."
-          link="projects.html"
-          link-text="View Details"
-          date="Oct - Dec 2022"
-          keywords="Networking, C++, TCP Protocol, High Performance">
-        </project-card>
-
-        <project-card
-          name="Library Management System"
-          image="assets/img/libsys.png"
-          alt="Database schema diagram showing library management system structure"
-          description="Developed a comprehensive library management system with both frontend and backend components using Python, PyQt5, and MySQL. Implemented layered architecture and modularization concepts with complete CRUD operations."
-          link="projects.html"
-          link-text="View Details"
-          date="Jun - Jul 2023"
-          keywords="Python, PyQt5, MySQL, Full-stack, Database">
-        </project-card>
-
-        <project-card
-          name="MySQL Honeypot Security System"
-          image="assets/img/honeypot.png"
-          alt="Network security diagram showing honeypot architecture"
-          description="Created and deployed a honeypot on MySQL server to detect, prevent, and defend against network threats by luring, monitoring, and analyzing attacker activities. Collected and analyzed data about different types of security attacks to simulate and optimize network security strategies."
-          link="projects.html"
-          link-text="View Details"
-          date="Jan - Feb 2023"
-          keywords="Security, MySQL, Network Security, Threat Detection">
-        </project-card>
-
-<!-- no image to showcase the alt text -->
-        <project-card
-          name="Enterprise Risk Metrics Platform"
-          image="assets/img/nonono.jpg"
-          alt="Enterprise architecture diagram showing risk metrics platform"
-          description="Developed a derivative metrics Agent based on Program of Thoughts prompt engineering, enabling large language models to generate executable Python scripts from natural language descriptions. Built an enterprise risk metrics auto-generation management platform with code persistence and effective reuse."
-          link="projects.html"
-          link-text="View Details"
-          date="Jun - Sep 2025"
-          keywords="LLM, Python, Enterprise Software, Redis, Prompt Engineering">
-        </project-card>
+        <div class="button-group">
+          <button id="load-local">Load Local</button>
+          <button id="load-remote">Load Remote</button>
+        </div>
+        <div id="cards-display" class="cards-grid"></div>
       </div>
     </section>
 
