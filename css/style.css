@@ -308,7 +308,7 @@ main {
         display: grid;
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        margin: 2rem 0;
+        margin: 1rem 0;
         padding: 1.5rem;
         background-color: var(--bg-section);
         backdrop-filter: blur(10px);
@@ -661,6 +661,24 @@ details.project-article:has(> summary:hover) {
     align-items: center;
 }
 
+.intro-overview {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+    gap: 2rem;
+    align-items: flex-start;
+    margin-top: 1rem;
+}
+
+.intro-overview-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.intro-highlight {
+    align-self: stretch;
+}
+
 .intro-avatar {
     width: 160px;
 }
@@ -734,6 +752,10 @@ article footer {
     
     .project-card summary h2 {
         font-size: 1.3rem;
+    }
+
+    .intro-overview {
+        grid-template-columns: 1fr;
     }
 
     /* responsive: fallback to single column in Other Projects & Research */

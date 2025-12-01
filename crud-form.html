@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="view-transition" content="same-origin">
+  <title>CRUD Project Data</title>
+  <meta name="description" content="CRUD operations for project data in local storage.">
+  <link rel="icon" href="assets/img/siteicon.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="scripts/theme.js"></script>
+</head>
+<body>
+  <div class="view-transition-overlay" style="view-transition-name: transition-overlay;"></div>
+  <header>
+    <nav>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">☰ Menu</label>
+      <ul class="main-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="about.html">About me</a></li>
+        <li><a href="experiments.html">(experiment)</a></li>
+        <li class="theme-toggle-container">
+          <button id="theme-toggle" class="theme-toggle" type="button">🌙 Dark &nbsp</button>
+        </li>
+      </ul>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <h1>CRUD Project Data in Local Storage</h1>
+
+    <section>
+      <h2>Project Data Management</h2>
+      <p>Select a CRUD operation and fill in the form fields accordingly.</p>
+
+      <form 
+        id="crud-form"
+        class="contact-form"
+        action="https://httpbin.org/post"
+        method="POST"
+      >
+        <fieldset>
+          <legend>CRUD Operation</legend>
+
+          <span>
+            <label for="crud-operation">Operation</label>
+            <select 
+              id="crud-operation" 
+              name="crud-operation" 
+              required
+            >
+              <option value="">-- Select Operation --</option>
+              <option value="create">Create</option>
+              <option value="read">Read</option>
+              <option value="update">Update</option>
+              <option value="delete">Delete</option>
+            </select>
+          </span>
+
+          <span>
+            <label for="project-name">Project Name</label>
+            <input 
+              type="text"
+              id="project-name"
+              name="project-name"
+              placeholder="Enter project name"
+              required
+              pattern="[A-Za-z0-9\s\-_]+"
+              minlength="2"
+              maxlength="100"
+              title="Project name must be 2-100 characters, letters, numbers, spaces, hyphens, and underscores only"
+            >
+          </span>
+
+          <span id="image-field">
+            <label for="project-image">Image Path or URL</label>
+            <input 
+              type="text"
+              id="project-image"
+              name="project-image"
+              placeholder="assets/img/llm.jpg or https://example.com/image.jpg"
+              pattern="(https?://.+)|([A-Za-z0-9_./-]+)"
+              title="Accepts absolute URLs or relative asset paths"
+            >
+          </span>
+
+          <span id="alt-field">
+            <label for="project-alt">Image Alt Text</label>
+            <input 
+              type="text"
+              id="project-alt"
+              name="project-alt"
+              placeholder="Description of the image"
+              maxlength="200"
+              title="Alt text for the image (max 200 characters)"
+            >
+          </span>
+
+          <span id="description-field">
+            <label for="project-description">Description</label>
+            <textarea 
+              id="project-description" 
+              name="project-description" 
+              rows="6" 
+              placeholder="Enter project description"
+              minlength="10"
+              maxlength="1000"
+              title="Project description (10-1000 characters)"
+            ></textarea>
+          </span>
+
+          <span id="link-field">
+            <label for="project-link">Project Link</label>
+            <input 
+              type="text"
+              id="project-link"
+              name="project-link"
+              placeholder="projects.html or https://example.com/project"
+              pattern="(https?://.+)|([A-Za-z0-9_./-]+)"
+              title="Accepts internal paths or absolute URLs"
+            >
+          </span>
+
+          <span id="date-field">
+            <label for="project-date">Date</label>
+            <input 
+              type="text"
+              id="project-date"
+              name="project-date"
+              placeholder="e.g., Jun - Sep 2025"
+              pattern="[A-Za-z0-9\s\-\|,]+"
+              maxlength="100"
+              title="Project date or time period "
+            >
+          </span>
+
+          <span id="keywords-field">
+            <label for="project-keywords">Keywords</label>
+            <input 
+              type="text"
+              id="project-keywords"
+              name="project-keywords"
+              placeholder="Python, JavaScript, React (comma-separated)"
+              pattern="[A-Za-z0-9\s,]+"
+              maxlength="500"
+              title="Comma-separated keywords"
+            >
+          </span>
+
+          <output id="output-error" class="error"></output>
+          <output id="output-info" class="info"></output>
+
+          <button type="submit" id="submit-btn">Submit</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <footer>
+      <p>Copyright©2023-2025 Kefan Xu. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <noscript>
+    <p>Enable JavaScript for best experience. Theme switching and CRUD operations require JavaScript.</p>
+  </noscript>
+  <script src="scripts/crud-form.js"></script>
+</body>
+</html>
