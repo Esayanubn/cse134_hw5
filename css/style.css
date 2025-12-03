@@ -509,7 +509,7 @@ details.project-article[open] {
 /* project card styles */
 .project-card {
     padding: 2rem 2rem 2rem calc(2rem + 1em);
-    margin: 2rem 0;
+    margin: 0;
     background: linear-gradient(135deg, var(--bg-section) 0%, var(--bg-card) 100%);
     backdrop-filter: blur(10px);
     border-radius: 12px;
@@ -663,7 +663,7 @@ details.project-article:has(> summary:hover) {
 
 .intro-overview {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
     gap: 2rem;
     align-items: flex-start;
     margin-top: 1rem;
@@ -677,6 +677,7 @@ details.project-article:has(> summary:hover) {
 
 .intro-highlight {
     align-self: stretch;
+    height: 70%;
 }
 
 .intro-avatar {
@@ -747,7 +748,7 @@ article footer {
     .project-article,
     .project-card {
         padding: 1rem 1rem 1rem calc(1rem + 1em);
-        margin: 1rem 0;
+        margin: 0rem 0;
     }
     
     .project-card summary h2 {
@@ -784,6 +785,33 @@ section ul li, section ol li {
     text-align: center;       
     font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
 }   
+
+/* Light mode: stronger borders & shadows for main content blocks */
+html:not([data-theme="dark"]) main section {
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+html:not([data-theme="dark"]) section ul li,
+html:not([data-theme="dark"]) section ol li {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 3px 10px var(--shadow-color);
+}
+
+html:not([data-theme="dark"]) article.blog-article,
+html:not([data-theme="dark"]) article.skill-article,
+html:not([data-theme="dark"]) .project-article,
+html:not([data-theme="dark"]) .project-card,
+html:not([data-theme="dark"]) article.skill-article span,
+html:not([data-theme="dark"]) form.contact-form {
+    box-shadow: 0 6px 20px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+/* light mode: projects page contact link lighter color */
+html:not([data-theme="dark"]) a.contact-link {
+    color: #e1e1e1;
+}
+
 
 body > main > footer {
     background-color: var(--nav-bg);
