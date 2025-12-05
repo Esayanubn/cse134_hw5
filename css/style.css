@@ -454,8 +454,8 @@ article.skill-article:hover {
 
 /* project article styles */
 .project-article {
-    padding: 1.5rem;
-    margin: 1.5rem 0;
+    padding: 1rem;
+    margin: 0.5rem 0;
     background-color: var(--bg-card);
     backdrop-filter: blur(8px);
     border-radius: 10px;

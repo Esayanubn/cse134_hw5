@@ -40,7 +40,7 @@ function initTheme() {
 function updateToggleButton(theme) {
     const toggleBtn = document.getElementById('theme-toggle');
     if (toggleBtn) {
-        toggleBtn.textContent = theme === THEME_DARK ? '☀️ Light' : '🌙 -Dark';
+        toggleBtn.textContent = theme === THEME_DARK ? '🌙' : '☀️';
         toggleBtn.setAttribute('aria-label', 
             theme === THEME_DARK ? 'Switch to light mode' : 'Switch to dark mode');
     }
