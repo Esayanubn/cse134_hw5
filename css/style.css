@@ -307,7 +307,7 @@ main {
     & section {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
         margin: 1rem 0;
         padding: 1.5rem;
         background-color: var(--bg-section);
@@ -427,8 +427,8 @@ article.blog-article {
 
 /* skill article styles */
 article.skill-article {
-    padding: 1.5rem;
-    margin: 1rem 0;
+    padding: 0.75rem;
+    margin: 0.25rem 0;
     background-color: var(--bg-card);
     backdrop-filter: blur(8px);
     border-radius: 10px;
@@ -533,10 +533,13 @@ details.project-card {
 }
 
 details.project-card > summary {
-    display: flex;
     align-items: center;
     cursor: pointer;
     list-style: none;
+    & h2 {
+        width: 100%;
+        align-self: center;
+    }
 }
 
 details.project-card > summary::-webkit-details-marker {
